@@ -45,66 +45,69 @@ const Modal = () => {
 
   return (
     <div
-      className="modal"
+      className="container"
       style={{ backgroundColor: isModalOpen ? "lightgray" : "" }}
       onClick={(e) => {
-        e.target.className == "modal" && setIsModalOpen(false);
+        e.target.className == "container" && setIsModalOpen(false);
       }}
     >
       <h1>User Details Modal</h1>
       <button onClick={toggleModal}>Open Form</button>
-      <div
-        className="modal-content"
-        style={{ display: !isModalOpen ? "none" : "" }}
-      >
-        <h2>Fill Details</h2>
-        <form onSubmit={handleSubmit}>
-          <label htmlFor="">Username:</label>
-          <input
-            type="text"
-            name="username"
-            id="username"
-            value={formData.username}
-            onChange={(e) =>
-              setFormData({ ...formData, username: e.target.value })
-            }
-            required
-          />
-          <label htmlFor="">Email Address:</label>
-          <input
-            type="email"
-            name="email"
-            id="email"
-            value={formData.email}
-            onChange={(e) =>
-              setFormData({ ...formData, email: e.target.value })
-            }
-          />
-          <label htmlFor="">Phone Number:</label>
-          <input
-            type="tel"
-            name="phone"
-            id="phone"
-            value={formData.phone}
-            onChange={(e) =>
-              setFormData({ ...formData, phone: e.target.value })
-            }
-            required
-          />
-          <label htmlFor="">Date of Birth:</label>
-          <input
-            type="date"
-            name="dob"
-            id="dob"
-            value={formData.dob}
-            onChange={(e) => setFormData({ ...formData, dob: e.target.value })}
-            required
-          />
-          <button type="submit" className="submit-button">
-            Submit
-          </button>
-        </form>
-      </div>
+      {isModalOpen && (
+        <div className="modal">
+          <div className="modal-content">
+            <h2>Fill Details</h2>
+            <form onSubmit={handleSubmit}>
+              <label htmlFor="">Username:</label>
+              <input
+                type="text"
+                name="username"
+                id="username"
+                value={formData.username}
+                onChange={(e) =>
+                  setFormData({ ...formData, username: e.target.value })
+                }
+                required
+              />
+              <label htmlFor="">Email Address:</label>
+              <input
+                type="email"
+                name="email"
+                id="email"
+                value={formData.email}
+                onChange={(e) =>
+                  setFormData({ ...formData, email: e.target.value })
+                }
+              />
+              <label htmlFor="">Phone Number:</label>
+              <input
+                type="tel"
+                name="phone"
+                id="phone"
+                value={formData.phone}
+                onChange={(e) =>
+                  setFormData({ ...formData, phone: e.target.value })
+                }
+                required
+              />
+              <label htmlFor="">Date of Birth:</label>
+              <input
+                type="date"
+                name="dob"
+                id="dob"
+                value={formData.dob}
+                onChange={(e) =>
+                  setFormData({ ...formData, dob: e.target.value })
+                }
+                required
+              />
+              <button type="submit" className="submit-button">
+                Submit
+              </button>
+            </form>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
