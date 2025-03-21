@@ -1,9 +1,8 @@
-import React from 'react'
-
+import React from "react";
+import Modal from "./components/Modal";
+import "./App.css";
 const App = () => {
-  return (
-    <div>App</div>
-  )
-}
+  return <Modal />;
+};
 
-export default App
+export default App;
